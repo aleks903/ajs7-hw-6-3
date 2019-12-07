@@ -1,91 +1,107 @@
-import generateShortDescription from './index.js';
+import Character from './js/character.js';
 
-test('Проверка вывод краткого состояния Bowman', () => {
-  const characters = {
+test('Проверка неверных переданных данных', () => {
+  function newCharacter() {
+    const character = new Character();
+    character('Л', 'Bown');
+  }
+  expect(newCharacter).toThrow();
+});
+
+test('Проверка формирования Bowman', () => {
+  const received = new Character('Лучник', 'Bowman');
+  const expected = {
     name: 'Лучник',
     type: 'Bowman',
-    health: 50,
+    health: 100,
     level: 1,
-    attack: 40,
-    defence: 10,
+    attack: 25,
+    defence: 25,
   };
-  const received = generateShortDescription(characters);
-  const expected = '\u{1F620}Л(1) \u{2694}40 \u{1F6E1}10 \u{2764}50';
 
-  expect(received).toBe(expected);
+  expect(received).toEqual(expected);
 });
 
-test('Проверка вывод краткого состояния Swordsman', () => {
-  const characters = {
+test('Проверка формирования Swordsman', () => {
+  const received = new Character('Лучник', 'Swordsman');
+  const expected = {
     name: 'Лучник',
     type: 'Swordsman',
-    health: 50,
+    health: 100,
     level: 1,
     attack: 40,
     defence: 10,
   };
-  const received = generateShortDescription(characters);
-  const expected = '\u{1F621}Л(1) \u{2694}40 \u{1F6E1}10 \u{2764}50';
 
-  expect(received).toBe(expected);
+  expect(received).toEqual(expected);
 });
 
-test('Проверка вывод краткого состояния Magician', () => {
-  const characters = {
+test('Проверка формирования Magician', () => {
+  const received = new Character('Лучник', 'Magician');
+  const expected = {
     name: 'Лучник',
     type: 'Magician',
-    health: 50,
+    health: 100,
     level: 1,
-    attack: 40,
-    defence: 10,
+    attack: 10,
+    defence: 40,
   };
-  const received = generateShortDescription(characters);
-  const expected = '\u{1F9D0}Л(1) \u{2694}40 \u{1F6E1}10 \u{2764}50';
 
-  expect(received).toBe(expected);
+  expect(received).toEqual(expected);
 });
 
-test('Проверка вывод краткого состояния Daemon', () => {
-  const characters = {
+test('Проверка формирования Magician', () => {
+  const received = new Character('Лучник', 'Magician');
+  const expected = {
+    name: 'Лучник',
+    type: 'Magician',
+    health: 100,
+    level: 1,
+    attack: 10,
+    defence: 40,
+  };
+
+  expect(received).toEqual(expected);
+});
+
+test('Проверка формирования Daemon', () => {
+  const received = new Character('Лучник', 'Daemon');
+  const expected = {
     name: 'Лучник',
     type: 'Daemon',
-    health: 50,
+    health: 100,
     level: 1,
-    attack: 40,
-    defence: 10,
+    attack: 10,
+    defence: 40,
   };
-  const received = generateShortDescription(characters);
-  const expected = '\u{1F47F}Л(1) \u{2694}40 \u{1F6E1}10 \u{2764}50';
 
-  expect(received).toBe(expected);
+  expect(received).toEqual(expected);
 });
 
-test('Проверка вывод краткого состояния Undead', () => {
-  const characters = {
+test('Проверка формирования Undead', () => {
+  const received = new Character('Лучник', 'Undead');
+  const expected = {
     name: 'Лучник',
     type: 'Undead',
-    health: 50,
+    health: 100,
     level: 1,
-    attack: 40,
-    defence: 10,
+    attack: 25,
+    defence: 25,
   };
-  const received = generateShortDescription(characters);
-  const expected = '\u{1F480}Л(1) \u{2694}40 \u{1F6E1}10 \u{2764}50';
 
-  expect(received).toBe(expected);
+  expect(received).toEqual(expected);
 });
 
-test('Проверка вывод краткого состояния Zombie', () => {
-  const characters = {
+test('Проверка формирования Zombie', () => {
+  const received = new Character('Лучник', 'Zombie');
+  const expected = {
     name: 'Лучник',
     type: 'Zombie',
-    health: 50,
+    health: 100,
     level: 1,
     attack: 40,
     defence: 10,
   };
-  const received = generateShortDescription(characters);
-  const expected = '\u{1F9DF}Л(1) \u{2694}40 \u{1F6E1}10 \u{2764}50';
 
-  expect(received).toBe(expected);
+  expect(received).toEqual(expected);
 });
